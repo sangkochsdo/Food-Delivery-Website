@@ -3,8 +3,8 @@ import cors from "cors";
 import { connectDB } from "./config/db.js";
 import foodRoute from "./routes/foodRoute.js";
 import userRouter from "./routes/userRoute.js";
-import 'dotenv/config';
-
+import "dotenv/config";
+import cartRoute from "./routes/cartRoute.js";
 // app config
 const app = express();
 const port = 4000;
@@ -20,6 +20,7 @@ connectDB();
 app.use("/api/food", foodRoute);
 app.use("/images", express.static("uploads"));
 app.use("/api/user", userRouter);
+app.use("/api/cart", cartRoute);
 
 app.get("/", (req, res) => {
   res.send("API Working hehehehe");
